@@ -95,15 +95,18 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
 
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY").commit();
+
+            if (fragmentManager.findFragmentByTag("MY1") == null)
+                fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY1").commit();
+            else fragmentManager.popBackStack("MY1", 0);
 
         } else if (id == R.id.nav_gallery) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY").commit();
+            fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY2").commit();
 
         } else if (id == R.id.nav_slideshow) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY").commit();
+            fragmentManager.beginTransaction().add(R.id.container, new MyFragment(), "MY3").commit();
 
         } else if (id == R.id.nav_tools) {
 
